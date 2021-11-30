@@ -74,6 +74,13 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
 
+  function playAgain() {
+    setPlayable(true);
+    setCorrectLetters([]);
+    setWrongLetters([]);
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+  }
+
   return (
     <>
       <Header />
@@ -82,7 +89,13 @@ export default function App() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
-      <Popup selectedWord={selectedWord} correctLetters={correctLetters} wrongLetters={wrongLetters} setPlayable={setPlayable}/>
+      <Popup
+        selectedWord={selectedWord}
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        setPlayable={setPlayable}
+        playAgain={playAgain}
+      />
       <Notification showNotification={showNotification} />
     </>
   );

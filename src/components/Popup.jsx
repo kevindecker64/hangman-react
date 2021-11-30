@@ -6,6 +6,7 @@ export default function Popup({
   correctLetters,
   wrongLetters,
   setPlayable,
+  playAgain,
 }) {
   let finalMessage = "";
   let finalMessageRevealWord = "";
@@ -23,11 +24,11 @@ export default function Popup({
   useEffect(() => setPlayable(playable))
 
   return (
-    <div class="popup-container" style={finalMessage !== "" ? {display:"flex"} : {}}>
-      <div class="popup">
+    <div className="popup-container" style={finalMessage !== "" ? {display:"flex"} : {}}>
+      <div className="popup">
         <h2>{finalMessage}</h2>
         <h3>{finalMessageRevealWord}</h3>
-        <button id="play-button">Play Again</button>
+        <button onClick={playAgain}>Play Again</button>
       </div>
     </div>
   );
