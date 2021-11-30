@@ -82,7 +82,7 @@ export default function App() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
-      <Popup />
+      <Popup selectedWord={selectedWord} correctLetters={correctLetters} wrongLetters={wrongLetters} setPlayable={setPlayable}/>
       <Notification showNotification={showNotification} />
     </>
   );
